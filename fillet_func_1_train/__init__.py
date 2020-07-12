@@ -12,6 +12,8 @@ import gc
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
+    unique_instance_str = str(uuid.uuid1())
+
     # req_body = json.loads(zlib.decompress(req.get_body()))
 
     # X_json = req_body['X']
@@ -25,7 +27,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     y_file = req.files['y_file']
 
     tempFilePath = tempfile.gettempdir()
-    staging_dir = tempFilePath + '/staging'
+    staging_dir = tempFilePath + '/staging/' + unique_instance_str
 
     if not os.path.exists(staging_dir):
         logging.info('Creating '+staging_dir)
@@ -65,7 +67,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         logging.info('Creating '+directory)
         os.makedirs(directory)
 
-    unique_instance_str = str(uuid.uuid1())
+    
 
     model.save_model(directory+'/model_'+unique_instance_str+'.json')
     logging.info('Model Saved Locally.')

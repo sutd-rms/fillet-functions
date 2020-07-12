@@ -8,6 +8,7 @@ import azure.functions as func
 import tempfile
 import zlib, json, base64
 import gc
+import uuid
 
 from sklearn.model_selection import LeaveOneGroupOut
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
@@ -15,6 +16,8 @@ from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
+
+    unique_instance_str = str(uuid.uuid1())
 
     # req_body = json.loads(zlib.decompress(base64.b64decode(req.get_body())))
 
@@ -32,7 +35,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     Wk_file = req.files['Wk_file']
 
     tempFilePath = tempfile.gettempdir()
-    staging_dir = tempFilePath + '/staging'
+    staging_dir = tempFilePath + '/staging/' + unique_instance_str
 
     if not os.path.exists(staging_dir):
         logging.info('Creating '+staging_dir)
