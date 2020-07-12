@@ -4,5 +4,11 @@
     "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[1.*, 2.0.0)"
   },
-  "functionTimeout": "02:00:00"
+  "functionTimeout": "02:00:00",
+  "extensions": {
+    "durableTask": {
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10
+    }
+  }
 }
