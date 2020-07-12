@@ -1,0 +1,7 @@
+HTTP/1.1 200 OK
+Date: Mon, 29 Jun 2020 07:21:38 GMT
+Content-Type: text/plain; charset=utf-8
+Server: Kestrel
+Content-Length: 135
+
+This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.

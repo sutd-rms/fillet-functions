@@ -1,0 +1,6 @@
+azure-functions
+xgboost
+pandas
+scikit-learn
+numpy
+pyarrow
