@@ -14,7 +14,14 @@ from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
 
-    req_body = json.loads(req.get_body())
+    # req_body = json.loads(zlib.decompress(base64.b64decode(req.get_body())))
+
+    # X_json = req_body['X']
+    # y_json = req_body['y']
+    # Week_json = req_body['Week']
+
+    # req_body = json.loads(req.get_body())
+    req_body = json.loads(zlib.decompress(req.get_body()))
 
     prices_json = req_body['prices']
     models_list = req_body['models']
