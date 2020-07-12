@@ -9,6 +9,7 @@ import tempfile
 import uuid
 from sklearn.model_selection import LeaveOneGroupOut
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
+import zlib
 
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
