@@ -3,13 +3,10 @@ import os
 import json
 import pandas as pd
 import numpy as np
-from xgboost import XGBRegressor, Booster, DMatrix
+from xgboost import XGBRegressor
 import azure.functions as func
 import tempfile
 import uuid
-from sklearn.model_selection import LeaveOneGroupOut
-from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
-import zlib
 import pickle as p
 
 

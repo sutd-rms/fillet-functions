@@ -5,7 +5,6 @@ import pandas as pd
 from xgboost import XGBRegressor
 import azure.functions as func
 import tempfile
-import zlib, json, base64
 import uuid
 import gc
 import pickle

@@ -6,7 +6,6 @@ import numpy as np
 from xgboost import XGBRegressor
 import azure.functions as func
 import tempfile
-import zlib, json, base64
 import gc
 import uuid
 
