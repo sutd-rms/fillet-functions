@@ -54,7 +54,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Beginning CV.')
     c=0
 
-    target_splits = 8
+    target_splits = 5
     n_actual_splits = 0
     nth_split = 0
 
