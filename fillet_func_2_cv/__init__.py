@@ -19,17 +19,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     unique_instance_str = str(uuid.uuid1())
 
-    # req_body = json.loads(zlib.decompress(base64.b64decode(req.get_body())))
-
-    # X_json = req_body['X']
-    # y_json = req_body['y']
-    # Week_json = req_body['Week']
-
-    # X = pd.read_json(X_json)
-    # X = X.reindex(sorted(X.columns), axis=1)
-    # y = pd.read_json(y_json, orient='index').sort_index()[0]
-    # Week = pd.read_json(Week_json, orient='index').sort_index()[0]
-
     X_file = req.files['X_file']
     y_file = req.files['y_file']
     Wk_file = req.files['Wk_file']
@@ -103,10 +92,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     mpe = mae / avg_sales
     rmse = rmse_total / n_actual_splits
 
-    # del req_body
-    # del X_json
-    # del y_json
-    # del Week_json
     del X
     del y
     del Week
