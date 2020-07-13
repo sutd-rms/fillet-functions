@@ -42,17 +42,6 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     del y
 
     gc.collect()
-    
-    tempFilePath = tempfile.gettempdir()
-
-    logging.info('Model Trained Successfully.')
-    logging.info(tempFilePath)
-
-    directory = tempFilePath + '/data'
-
-    if not os.path.exists(directory):
-        logging.info('Creating '+directory)
-        os.makedirs(directory)
 
     model_pickle = pickle.dumps(model)
 

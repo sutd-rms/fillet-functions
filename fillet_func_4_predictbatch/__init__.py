@@ -21,11 +21,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     prices = pd.read_json(prices_json)
     prices = prices.reindex(sorted(prices.columns), axis=1)
+    
 
     qty_est_list = []
 
     for model in models_list:
-
+        prices = prices[model.get_booster().feature_names]
         pred = model.predict(data=prices)
 
 
